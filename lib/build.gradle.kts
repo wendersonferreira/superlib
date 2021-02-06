@@ -4,6 +4,8 @@ plugins {
     `maven-publish`
 }
 
+version = "0.1.0-GA"
+
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
@@ -30,7 +32,7 @@ dependencies {
 }
 
 publishing {
-    repositories{
+    repositories {
         maven {
             url = uri("https://gitlab.com/trustsystems/api/v4/groups/3488953/-/packages/maven")
             name = "GitLab"
