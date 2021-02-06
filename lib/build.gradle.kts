@@ -4,22 +4,12 @@ plugins {
     `maven-publish`
 }
 
+group="br.com.trustsystems"
 version = "0.1.0-GA"
 
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
-    maven {
-        url = uri("https://gitlab.com/api/v4/groups/3488953/-/packages/maven")
-        name = "GitLab"
-        credentials(HttpHeaderCredentials::class.java) {
-            name = "Job-Token"
-            value = System.getenv("CI_JOB_TOKEN")
-        }
-        authentication {
-            create<HttpHeaderAuthentication>("header")
-        }
-    }
 }
 
 dependencies {
@@ -55,6 +45,18 @@ publishing {
     }
 
     publications {
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/wendersonferreira/superlib")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
+
         create<MavenPublication>("mavenJava") {
             pom {
                 name.set("superlib")
