@@ -9,9 +9,6 @@ cache:
   paths:
     - .gradle/wrapper
     - .gradle/caches
-build:
-  script:
-    - ./gradlew clean build test
 deploy:
   script:
     - ./gradlew publish
