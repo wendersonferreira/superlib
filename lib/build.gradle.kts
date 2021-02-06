@@ -45,14 +45,11 @@ dependencies {
 publishing {
     repositories {
         maven {
-            url = uri("https://gitlab.com/api/v4/projects/24216073/-/packages/maven")
-            name = "GitLab"
-            credentials(HttpHeaderCredentials::class.java) {
-                name = "Job-Token"
-                value = System.getenv("CI_JOB_TOKEN")
-            }
-            authentication {
-                create<HttpHeaderAuthentication>("header")
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/wendersonferreira/superlib")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
             }
         }
     }
