@@ -10,7 +10,7 @@ repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
     maven {
-        url = uri("https://gitlab.com/api/v4/groups/3488953/-/packages/maven")
+        url = uri("https://gitlab.com/trustsystems/api/v4/groups/3488953/-/packages/maven")
         name = "GitLab"
         credentials(HttpHeaderCredentials::class.java) {
             name = "Job-Token"
@@ -45,7 +45,7 @@ dependencies {
 publishing {
     repositories {
         maven {
-            url = uri("https://gitlab.com/api/v4/projects/24216073/packages/maven")
+            url = uri("https://gitlab.com/trustsystems/api/v4/projects/24216073/packages/maven")
             name = "GitLab"
             credentials(HttpHeaderCredentials::class.java) {
                 name = "Job-Token"
