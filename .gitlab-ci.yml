@@ -11,4 +11,9 @@ cache:
     - .gradle/caches
 build:
   script:
-    - ./gradlew clean build test publish
+    - ./gradlew clean build test
+deploy:
+  script:
+    - ./gradlew publish
+  only:
+    - master
